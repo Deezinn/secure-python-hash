@@ -1,9 +1,12 @@
 [project]
 name = "secure-python-hash"
 version = "0.1.0"
-description = "Add your description here"
+description = "Treinando hash para futuras apis"
 readme = "README.md"
+author = "André Luiz"
 requires-python = ">=3.12"
 dependencies = [
+    "argon2-cffi>=25.1.0",
     "passlib>=1.7.4",
+    "types-passlib>=1.7.7.20260211",
 ]
