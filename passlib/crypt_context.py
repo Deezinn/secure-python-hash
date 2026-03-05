@@ -1,13 +1,13 @@
 from passlib.context import CryptContext
 
-pwd_context = CryptContext(
-    schemes=["pbkdf2_sha256", "des_crypt"],
-    # deprecated='auto',  caso eu tenha um hash antigo e queria atualizar, aplicar
+myctx = CryptContext(
+    schemes=["sha256_crypt", "md5_crypt", "des_crypt"]
 )
 
-hash: str = pwd_context.hash(secret='hash_qualquer')
+hash1: str = myctx.hash(secret='minha_senha')
+print(hash1)
 
-print(hash)
+# método que verifica o hash
+print(myctx.verify(secret='outra_senha', hash=hash1)) # false
+print(myctx.verify(secret="minha_senha", hash=hash1)) # true
 
-print(pwd_context.verify(secret='hash_qualquer', hash=hash))
-print(pwd_context.verify(secret="hash_qualquer_outro", hash=hash))
