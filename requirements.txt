@@ -1,0 +1,6 @@
+argon2-cffi==25.1.0
+argon2-cffi-bindings==25.1.0
+cffi==2.0.0
+passlib==1.7.4
+pycparser==3.0
+types-passlib==1.7.7.20260211
