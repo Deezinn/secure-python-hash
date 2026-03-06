@@ -1,5 +1,3 @@
-from email.policy import default
-
 from passlib.context import CryptContext
 
 myctx: CryptContext = CryptContext(schemes=["sha256_crypt", "md5_crypt", "des_crypt"])
@@ -38,3 +36,13 @@ myctx3.update(sha256_crypt__default_rounds=91234,
 
 print(myctx3.hash(secret="password", scheme="sha256_crypt"))
 print(myctx3.hash(secret="password", scheme="ldap_salted_md5"))
+
+
+myctx4 = CryptContext(
+    schemes=["sha256_crypt", "ldap_salted_md5"],
+    sha256_crypt__default_rounds = 91234,
+    ldap_salted_md5__salt_size = 16
+    )
+
+# Analise do obj cryptcontext, setando por default alguns parametros
+print(myctx4.to_dict())
